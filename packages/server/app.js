@@ -119,21 +119,6 @@ const getApp = async (opts = {}) => {
   // todo ability to configure session_secret Age
   app.use(getSessionStore());
 
-  //https://github.com/jaredhanson/passport/issues/904#issuecomment-1307558283
-  // register regenerate & save after the cookieSession middleware initialization
-  app.use(function (request, response, next) {
-    if (request.session && !request.session.regenerate) {
-      request.session.regenerate = (cb) => {
-        cb();
-      };
-    }
-    if (request.session && !request.session.save) {
-      request.session.save = (cb) => {
-        cb();
-      };
-    }
-    next();
-  });
   app.use(passport.initialize());
   app.use(passport.authenticate(["jwt", "session"]));
   app.use((req, res, next) => {
