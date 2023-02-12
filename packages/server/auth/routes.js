@@ -22,7 +22,7 @@ const {
 const { getState } = require("@saltcorn/data/db/state");
 const { send_reset_email } = require("./resetpw");
 const { renderForm, post_btn } = require("@saltcorn/markup");
-const passport = require("passport");
+const passport = require("@saltcorn/passport");
 const {
   a,
   img,

@@ -19,7 +19,7 @@ const Role = require("@saltcorn/data/models/role");
 const Tenant = require("@saltcorn/admin-models/models/tenant");
 const Plugin = require("@saltcorn/data/models/plugin");
 const Config = require("@saltcorn/data/models/config");
-const passport = require("passport");
+const passport = require("@saltcorn/passport");
 
 const {
   stateFieldsToWhere,

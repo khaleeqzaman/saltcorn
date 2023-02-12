@@ -9,7 +9,7 @@ const mountRoutes = require("./routes");
 
 const { getState, init_multi_tenant } = require("@saltcorn/data/db/state");
 const db = require("@saltcorn/data/db");
-const passport = require("passport");
+const passport = require("@saltcorn/passport");
 const CustomStrategy = require("passport-custom").Strategy;
 const BearerStrategy = require("passport-http-bearer");
 const User = require("@saltcorn/data/models/user");

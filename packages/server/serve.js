@@ -35,8 +35,8 @@ const {
   getSessionStore,
   get_tenant_from_req,
 } = require("./routes/utils");
-const passport = require("passport");
-const { authenticate } = require("passport");
+const passport = require("@saltcorn/passport");
+const { authenticate } = require("@saltcorn/passport");
 const View = require("@saltcorn/data/models/view");
 const {
   listenForChanges,
