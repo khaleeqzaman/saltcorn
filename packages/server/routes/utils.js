@@ -184,9 +184,11 @@ const setTenant = (req, res, next) => {
       }
     } else {
       const other_domain = get_other_domain_tenant(req.hostname);
+      console.log({ other_domain });
       if (other_domain) {
         const state = getTenant(other_domain);
         if (!state) {
+          console.log("no state other_domain");
           setLanguage(req, res);
           next();
         } else {
@@ -198,8 +200,12 @@ const setTenant = (req, res, next) => {
         }
       } else {
         const ten = get_tenant_from_req(req);
+        console.log({ ten });
+
         const state = getTenant(ten);
         if (!state) {
+          console.log("no state ten");
+
           setLanguage(req, res);
           next();
         } else {
