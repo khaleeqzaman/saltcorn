@@ -200,11 +200,14 @@ const setTenant = (req, res, next) => {
         }
       } else {
         const ten = get_tenant_from_req(req);
-        console.log({ ten });
+        console.log({ ten, user: req.user });
 
         const state = getTenant(ten);
         if (!state) {
-          console.log("no state ten");
+          console.log("no state ten", {
+            state: getState(),
+            site_name: getState().getConfig("site_name"),
+          });
 
           setLanguage(req, res);
           next();
