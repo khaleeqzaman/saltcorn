@@ -718,10 +718,16 @@ const singleton = new State("public");
  * @function
  * @returns {State}
  */
-const getState = (): State | undefined => {
-  if (!db.is_it_multi_tenant()) return singleton;
+const getState = (logit?: boolean): State | undefined => {
+  if (!db.is_it_multi_tenant()) {
+    if (logit) console.log("getState not multitenant");
+
+    return singleton;
+  }
 
   const ten = db.getTenantSchema();
+  if (logit) console.log("getstate ten", ten, db.connectObj.default_schema);
+
   if (ten === db.connectObj.default_schema) return singleton;
   else return tenants[ten];
 };

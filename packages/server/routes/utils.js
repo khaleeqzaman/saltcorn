@@ -205,7 +205,7 @@ const setTenant = (req, res, next) => {
         const state = getTenant(ten);
         if (!state) {
           console.log("no state ten", {
-            state: getState(),
+            state_tenant: getState(true).tenant,
             site_name: getState().getConfig("site_name"),
           });
 
