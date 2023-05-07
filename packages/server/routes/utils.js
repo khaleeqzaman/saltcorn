@@ -160,6 +160,7 @@ const get_tenant_from_req = (req) => {
  * @param {function} next
  */
 const setTenant = (req, res, next) => {
+  console.log("setTenant initial", req.originalUrl);
   if (db.is_it_multi_tenant()) {
     // for a saltcorn mobile request use 'req.user.tenant'
     if (req.smr) {
