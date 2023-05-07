@@ -40,7 +40,11 @@ export const runWithTenant = <Type>(
   f: () => Promise<Type>
 ): Promise<Type> => {
   if (!is_multi_tenant) return f();
-  else return tenantNamespace.run(sqlsanitize(tenant).toLowerCase(), f);
+  else {
+    console.log("runWithTenant", tenant);
+
+    return tenantNamespace.run(sqlsanitize(tenant).toLowerCase(), f);
+  }
 };
 /**
  * Get tenant schema name
