@@ -160,7 +160,10 @@ const get_tenant_from_req = (req) => {
  * @param {function} next
  */
 const setTenant = (req, res, next) => {
-  console.log("setTenant initial", req.originalUrl);
+  console.log(
+    "setTenant initial",
+    req.protocol + "://" + req.get("host") + req.originalUrl
+  );
   if (db.is_it_multi_tenant()) {
     // for a saltcorn mobile request use 'req.user.tenant'
     if (req.smr) {
@@ -191,6 +194,7 @@ const setTenant = (req, res, next) => {
         if (!state) {
           console.log("no state other_domain");
           setLanguage(req, res);
+          state.log(5, `${req.method} ${req.originalUrl}`);
           next();
         } else {
           db.runWithTenant(other_domain, () => {
