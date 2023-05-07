@@ -184,7 +184,7 @@ const setTenant = (req, res, next) => {
       }
     } else {
       const other_domain = get_other_domain_tenant(req.hostname);
-      console.log({ other_domain });
+      console.log("setTenant", { other_domain });
       if (other_domain) {
         const state = getTenant(other_domain);
         if (!state) {
@@ -200,7 +200,7 @@ const setTenant = (req, res, next) => {
         }
       } else {
         const ten = get_tenant_from_req(req);
-        console.log({ ten, user: req.user });
+        console.log("setTenant", { ten, user: req.user });
 
         const state = getTenant(ten);
         if (!state) {

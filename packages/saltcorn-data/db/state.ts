@@ -725,7 +725,7 @@ const getState = (logit?: boolean): State | undefined => {
     return singleton;
   }
 
-  const ten = db.getTenantSchema();
+  const ten = db.getTenantSchema(logit);
   if (logit) console.log("getstate ten", ten, db.connectObj.default_schema);
 
   if (ten === db.connectObj.default_schema) return singleton;

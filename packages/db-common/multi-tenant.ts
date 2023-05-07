@@ -45,8 +45,10 @@ export const runWithTenant = <Type>(
 /**
  * Get tenant schema name
  */
-export const getTenantSchema = (): string => {
+export const getTenantSchema = (logit?: boolean): string => {
   if (!connObj) throw new Error("The connection object is not initialized");
   const storeVal = tenantNamespace.getStore();
+  if (logit) console.log("getTenantSchema", { storeVal });
+
   return storeVal || connObj.default_schema;
 };
