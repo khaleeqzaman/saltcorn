@@ -204,9 +204,10 @@ const setTenant = (req, res, next) => {
 
         const state = getTenant(ten);
         if (!state) {
+          let myst = getState(true);
           console.log("no state ten", {
-            state_tenant: getState(true).tenant,
-            site_name: getState().getConfig("site_name"),
+            state_tenant: myst.tenant,
+            site_name: myst.getConfig("site_name"),
           });
 
           setLanguage(req, res);
