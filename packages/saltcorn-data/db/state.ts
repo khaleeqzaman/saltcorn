@@ -845,6 +845,7 @@ const init_multi_tenant = async (
       );
     }
   }
+  console.log("DONE init tenants");
 };
 /**
  * Add tenant to State
