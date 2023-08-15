@@ -844,6 +844,7 @@ const init_multi_tenant = async (
         err.message
       );
     }
+    console.log("done tenant", domain);
   }
   console.log("DONE init tenants");
 };
