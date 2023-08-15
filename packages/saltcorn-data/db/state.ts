@@ -828,6 +828,7 @@ const init_multi_tenant = async (
 
   for (const domain of tenantList) {
     try {
+      console.log("init tenant", domain);
       // create new state for each domain
       tenants[domain] = new State(domain);
       // make migration
