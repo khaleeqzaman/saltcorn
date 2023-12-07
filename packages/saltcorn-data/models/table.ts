@@ -1226,6 +1226,8 @@ class Table implements AbstractTable {
     }
 
     if (this.versioned) {
+      console.log("---uphistory", this, v);
+
       const existing1 = await db.selectOne(this.name, { [pk_name]: id });
       if (!existing) existing = existing1;
       await db.insert(this.name + "__history", {
